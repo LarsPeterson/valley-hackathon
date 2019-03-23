@@ -20,11 +20,7 @@ let password = encryptor.encryptPassword(passwordToCheck);
 password = password.substr(0, 5).toUpperCase();
 
 let onComplete = function(list) {
-  if (hashCheck.comparePassword(list)) {
-    console.log("Your password is compromised");
-  } else {
-    console.log("Your password password is not compromised");
-  }
+  console.log(list);
 };
 
 encryptor.getPasswordList(password, onComplete);
