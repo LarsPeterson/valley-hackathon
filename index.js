@@ -12,14 +12,15 @@
 
 const passwordToCheck = "password";
 
-const http = require('https');
-const encryptor = require('./encryptor');
+const hashCheck = require("./hashCheck");
+const http = require("https");
+const encryptor = require("./encryptor");
 
 let password = encryptor.encryptPassword(passwordToCheck);
 password = password.substr(0, 5).toUpperCase();
 
-let onComplete = function (list) {
-	console.log(list);
-}
+let onComplete = function(list) {
+  console.log(list);
+};
 
 encryptor.getPasswordList(password, onComplete);
