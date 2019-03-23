@@ -10,17 +10,22 @@
 // barebones
 // api that checks if comprimised password
 
-const passwordToCheck = "password";
+const passwordToCheck = "passwordpassword1";
 
 const hashCheck = require("./hashCheck");
 const http = require("https");
 const encryptor = require("./encryptor");
 
 let password = encryptor.encryptPassword(passwordToCheck);
-password = password.substr(0, 5).toUpperCase();
+passwordSub = password.substr(0, 5).toUpperCase();
+console.log(passwordSub);
 
 let onComplete = function(list) {
-  console.log(list);
+  if (hashCheck.comparePassword(password, list)) {
+    console.log("FINALLY! Your password is compromised");
+  } else {
+    console.log("Your password is not compromised");
+  }
 };
 
-encryptor.getPasswordList(password, onComplete);
+encryptor.getPasswordList(passwordSub, onComplete);
