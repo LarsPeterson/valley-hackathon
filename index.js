@@ -15,8 +15,11 @@ const passwordToCheck = "password";
 const http = require('https');
 const encryptor = require('./encryptor');
 
-let encryptedPassword = encryptor.encryptPassword(passwordToCheck).substr(0, 5).toUpperCase();
+let password = encryptor.encryptPassword(passwordToCheck);
+password = password.substr(0, 5).toUpperCase();
 
-encryptor.wasPasswordComprimised(encryptedPassword, (passwordMatches) => {
-	console.log(passwordMatches);
-});
+let onComplete = function (list) {
+	console.log(list);
+}
+
+encryptor.getPasswordList(password, onComplete);

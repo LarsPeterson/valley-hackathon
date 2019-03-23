@@ -158,7 +158,7 @@ module.exports = {
         return temp.toLowerCase();
     },
 
-    wasPasswordComprimised: function (password, callback) {
+    getPasswordList: function (password, callback) {
         let uri = "https://api.pwnedpasswords.com/range/" + password;
         http.get(uri, (response) => {
             var body = '';
