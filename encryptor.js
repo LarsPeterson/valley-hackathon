@@ -170,7 +170,6 @@ module.exports = {
       response.on("end", function() {
         let passwordMatches = body.split("\r\n");
         callback(passwordMatches);
-        console.log(passwordMatches[0]);
       });
     });
   }

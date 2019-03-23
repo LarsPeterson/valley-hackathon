@@ -18,7 +18,6 @@ const encryptor = require("./encryptor");
 
 let password = encryptor.encryptPassword(passwordToCheck);
 passwordSub = password.substr(0, 5).toUpperCase();
-console.log(passwordSub);
 
 let onComplete = function(list) {
   if (hashCheck.comparePassword(password, list)) {
