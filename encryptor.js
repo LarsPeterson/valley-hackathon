@@ -1,3 +1,5 @@
+const http = require('https');
+
 module.exports = {
     encryptPassword: function (password) {
         function rotate_left(n, s) {
